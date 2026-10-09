@@ -4,15 +4,25 @@ import { useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { EventItem } from '@/lib/types';
 
+// Theme color accents matching each poster placard
+const dayThemes: Record<number, { ribbonBg: string; borderGlow: string; textAccent: string }> = {
+  1: { ribbonBg: 'from-[#B91C1C] via-[#DC2626] to-[#991B1B]', borderGlow: 'rgba(220,38,38,0.4)', textAccent: '#991B1B' },
+  2: { ribbonBg: 'from-[#1E40AF] via-[#2563EB] to-[#1D4ED8]', borderGlow: 'rgba(37,99,235,0.4)', textAccent: '#1D4ED8' },
+  3: { ribbonBg: 'from-[#166534] via-[#15803D] to-[#14532D]', borderGlow: 'rgba(21,128,61,0.4)', textAccent: '#15803D' },
+  4: { ribbonBg: 'from-[#5B21B6] via-[#7C3AED] to-[#4C1D95]', borderGlow: 'rgba(124,58,237,0.4)', textAccent: '#6D28D9' },
+  5: { ribbonBg: 'from-[#B91C1C] via-[#E11D48] to-[#991B1B]', borderGlow: 'rgba(225,29,72,0.4)', textAccent: '#B91C1C' },
+};
+
 export default function EventCard({ item }: { item: EventItem }) {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = dayThemes[item.day] || dayThemes[1];
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['6deg', '-6deg']);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-6deg', '6deg']);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -21,92 +31,97 @@ export default function EventCard({ item }: { item: EventItem }) {
   };
 
   return (
-    <motion.div 
-      layout 
+    <motion.div
+      layout
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { x.set(0); y.set(0); }}
       onClick={() => setIsOpen(!isOpen)}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d", background: '#0a0f1e' }}
-      className={`relative overflow-hidden rounded-[2.5rem] mb-6 cursor-pointer border transition-all duration-500 shadow-2xl ${
-        isOpen ? 'border-[#FFB703]/70 shadow-[0_0_40px_rgba(255,183,3,0.3)]' : 'border-white/10 hover:border-[#FFB703]/30'
+      style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+      className={`relative overflow-hidden rounded-[2rem] mb-7 cursor-pointer transition-all duration-500 shadow-2xl border-2 ${
+        isOpen
+          ? 'border-[#FFB703] shadow-[0_20px_50px_rgba(0,0,0,0.8)] scale-[1.01]'
+          : 'border-[#4a2e12]/40 hover:border-[#FFB703]/60 shadow-[0_15px_35px_rgba(0,0,0,0.6)]'
       }`}
     >
-      <AnimatePresence mode="wait">
+      {/* Background Parchment / Paper Feel */}
+      <div 
+        className="absolute inset-0 z-0 bg-[#FFFBEB]"
+        style={{
+          backgroundImage: 'radial-gradient(circle at 50% 50%, #FFFDF5 60%, #F5E6CA 100%)',
+          boxShadow: 'inset 0 0 35px rgba(120, 53, 15, 0.25)'
+        }}
+      />
+
+      {/* Expanded Background Photo with Dark Tint */}
+      <AnimatePresence>
         {isOpen && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.45 }} exit={{ opacity: 0 }} className="absolute inset-0 z-0">
-            <motion.img 
-              initial={{ scale: 1 }} animate={{ scale: 1.2 }} 
-              transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
-              src={item.img} alt={item.title} className="w-full h-full object-cover" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e] via-[#0a0f1e]/80 to-transparent" />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.18 }} exit={{ opacity: 0 }} className="absolute inset-0 z-0 pointer-events-none">
+            <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="relative z-10 p-7 md:p-8" style={{ transform: "translateZ(50px)" }}>
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-5 md:gap-6">
-            <div className="relative">
-              {!isOpen && (
-                <motion.div 
-                  animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0, 0.4] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                  className="absolute inset-0 bg-[#FFB703] rounded-3xl blur-md"
-                />
-              )}
-              <div className="relative flex flex-col items-center justify-center bg-gradient-to-br from-[#FFB703] via-[#FB8500] to-[#D90429] rounded-3xl p-3 min-w-[75px] md:min-w-[85px] shadow-2xl">
-                <span className="text-[9px] text-black font-black uppercase">Day</span>
-                <span className="text-3xl md:text-4xl font-black text-black leading-none">{item.day}</span>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">{item.date}</p>
-              <h3 className="font-bold text-xl md:text-2xl text-white tracking-tighter leading-none italic">{item.title}</h3>
-              
-              <div className="flex flex-col gap-1 mt-2">
-                <p className="text-[10px] md:text-xs text-[#FFB703] uppercase tracking-widest font-bold">{item.theme}</p>
-                {item.venue && (
-                  <p className="text-[8px] md:text-[9px] text-[#D90429] uppercase tracking-[0.2em] font-black italic">
-                    📍 {item.venue}
-                  </p>
-                )}
-              </div>
-            </div>
+      <div className="relative z-10 p-6 md:p-8" style={{ transform: 'translateZ(40px)' }}>
+        {/* Top Poster Ribbon */}
+        <div className="flex justify-between items-start mb-4">
+          <div className={`inline-block px-4 py-1.5 rounded-full bg-gradient-to-r ${theme.ribbonBg} shadow-md`}>
+            <p className="text-[10px] md:text-xs font-black uppercase tracking-wider text-white">
+              {item.date}
+            </p>
           </div>
 
-          <motion.div 
-            animate={{ rotate: isOpen ? 180 : 0, y: isOpen ? 0 : [0, 5, 0] }}
-            transition={{ y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" } }}
-            className={`flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full border ${
-              isOpen ? 'bg-[#FFB703] border-[#FFB703]' : 'border-white/20 bg-white/5'
-            }`}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={isOpen ? "black" : "white"} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 9l6 6 6-6"/>
-            </svg>
-          </motion.div>
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-black uppercase text-[#854D0E] tracking-widest bg-[#FEF08A] px-2.5 py-0.5 rounded-full border border-[#CA8A04]/40">
+              DAY {item.day}
+            </span>
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              className="w-7 h-7 rounded-full bg-[#78350F]/10 flex items-center justify-center text-[#78350F] font-bold text-xs"
+            >
+              ▼
+            </motion.div>
+          </div>
         </div>
 
+        {/* Event Title Matching Poster Typography */}
+        <h3 className="text-2xl md:text-3xl font-black text-[#1C1917] tracking-tight uppercase leading-none italic drop-shadow-sm mb-2">
+          {item.title}
+        </h3>
+
+        {/* Sub-Theme & Venue */}
+        <p className="text-xs md:text-sm font-extrabold uppercase tracking-wide" style={{ color: theme.textAccent }}>
+          {item.theme}
+        </p>
+        {item.venue && (
+          <p className="text-[10px] md:text-xs font-black uppercase tracking-wider text-[#78350F] mt-1">
+            📍 {item.venue}
+          </p>
+        )}
+
+        {/* Collapsible Details */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="mt-6 pt-6 border-t border-white/10">
-              <p className="text-sm md:text-lg text-slate-100 leading-relaxed font-medium mb-8">
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="mt-5 pt-5 border-t-2 border-[#78350F]/20"
+            >
+              <p className="text-sm md:text-base text-[#292524] leading-relaxed font-bold mb-6">
                 {item.details}
               </p>
-              
+
               {item.regLink && (
                 <motion.a
                   href={item.regLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()} 
+                  onClick={(e) => e.stopPropagation()}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center w-full py-4 bg-gradient-to-r from-[#FFB703] via-[#FB8500] to-[#D90429] text-black font-black uppercase tracking-[0.2em] text-[11px] rounded-2xl shadow-[0_10px_30px_rgba(217,4,41,0.35)] transition-all"
+                  className="flex items-center justify-center w-full py-3.5 bg-gradient-to-r from-[#FFB703] via-[#FB8500] to-[#D90429] text-black font-black uppercase tracking-[0.2em] text-xs rounded-xl shadow-lg hover:shadow-xl transition-all"
                 >
-                  Register to Participate ➔
+                  Register Now ➔
                 </motion.a>
               )}
             </motion.div>
