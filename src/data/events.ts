@@ -7,7 +7,7 @@ export const schedule: EventItem[] = [
     title: "INAUGURATION OF VISMAYA ✂️🎉",
     theme: "Opening Ceremony, Flash Mob & Food Fest",
     venue: "OPEN AIR THEATRE",
-    img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1000&auto=format",
+    img: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format",
     regLink: "https://forms.gle/xvdGkEPG67AqjDjK7",
     details: "🎙️ 11:00 AM to 12:00 PM: Flash Mob & Grand Inauguration. 🍴 12:00 PM to 4:00 PM: Food Fest & Mind Games. Support your friends' culinary skills and sharpen your mind!"
   },
@@ -17,7 +17,7 @@ export const schedule: EventItem[] = [
     title: "CHARACTER DAY 🎭🎬",
     theme: "Dress up as Favorite Film Characters",
     venue: "COLLEGE CAMPUS",
-    img: "https://images.unsplash.com/photo-1514306191717-452ec28c7814?q=80&w=1000&auto=format",
+    img: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=1200&auto=format",
     regLink: "https://forms.gle/S9QBZyokt4BQoJPE7",
     details: "🚶 11:00 AM to 12:00 PM: Ramp Walk (Show off your iconic costumes). 🎁 2:00 PM to 5:00 PM: Treasure Hunt. Explore the campus clues to claim victory!"
   },
@@ -27,7 +27,7 @@ export const schedule: EventItem[] = [
     title: "SQUAD DAY 🏏⚔️",
     theme: "Unity, Box Cricket & Tug of War",
     venue: "CAMPUS GROUND",
-    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1000&auto=format",
+    img: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format",
     regLink: "https://forms.gle/YSQV7MHUjprPxLqQ6",
     details: "🏏 10:00 AM to 1:00 PM: Box Cricket showdown. 🪢 2:00 PM to 5:00 PM: Tug of War battle of pure strength between departments!"
   },
@@ -37,7 +37,7 @@ export const schedule: EventItem[] = [
     title: "JERSEY DAY ⚽🏆",
     theme: "Penalty Shootout / Ball Kick Challenge",
     venue: "CAMPUS ARENA",
-    img: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000&auto=format",
+    img: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format",
     regLink: "",
     details: "⚽ 11:00 AM – 1:00 PM: Penalty Shootout / Ball Kick Challenge. Set up a mini goalpost on campus where participants in jerseys try to score against a student goalkeeper!"
   },
@@ -47,7 +47,7 @@ export const schedule: EventItem[] = [
     title: "ಕನ್ನಡ ಸುಗ್ಗಿ ಸಂಭ್ರಮ 🚩🌾",
     theme: "Traditional Day & Kannada Suggi Sambhrama",
     venue: "OPEN AIR THEATRE",
-    img: "/day5.jpg",
+    img: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=1200&auto=format",
     regLink: "",
     details: "🟡🔴 10:00 AM – 2:00 PM: Traditional Karnataka attire, culture, traditional music, and celebrating the spirit of the land."
   }
@@ -55,13 +55,12 @@ export const schedule: EventItem[] = [
 
 export const eventCoordinators: EventCoordinatorGroup[] = [
   {
-    event: "Inauguration (Flex & Flash Mob) & Anchoring",
+    event: "Inauguration (Flex & Flash Mob)",
     contacts: [
       { name: "Santosh Kotinatot (ME)", phone: "7676043085" },
       { name: "Onkar Jaganur (EEE)", phone: "9741012245" },
-      { name: "Nayan Bongale (ECE)", role: "Anchoring" },
       { name: "Shreyas Upadhye", phone: "9482340883" },
-      { name: "Anoop Hampannavar (CSE)" }
+      { name: "Anoop Hampannavar (CSE)", phone: "7760926543" }
     ]
   },
   {
@@ -70,7 +69,7 @@ export const eventCoordinators: EventCoordinatorGroup[] = [
       { name: "Rohit Sankeshwari (ECE)", phone: "8867036321" },
       { name: "Ritika Aparadh", phone: "7259132105" },
       { name: "Megha Sakkappanavar", phone: "8971103175" },
-      { name: "Shayamgouda Ningnuri (ECE)" }
+      { name: "Shyamgouda Ningnuri (ECE)", phone: "8618660605" }
     ]
   },
   {
@@ -87,9 +86,8 @@ export const eventCoordinators: EventCoordinatorGroup[] = [
       { name: "Rakhi Naik (ECE)", phone: "9448746822" },
       { name: "Srushti Humashyal (CSE)", phone: "7019856323" },
       { name: "Pramod Pujari (CSE)", phone: "7795516587" },
-      { name: "Karthik Uramratti (ECE)" },
-      { name: "Anchan (ECE)" },
-      { name: "Nayan Bongale" }
+      { name: "Karthik Uramratti (ECE)", phone: "8431439932" },
+      { name: "Anchan (ECE)" }
     ]
   },
   {
