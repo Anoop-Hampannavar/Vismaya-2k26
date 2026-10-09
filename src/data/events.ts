@@ -8,7 +8,7 @@ export const schedule: EventItem[] = [
     theme: "Opening Ceremony, Flash Mob & Food Fest",
     venue: "OPEN AIR THEATRE",
     img: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format",
-    regLink: "https://forms.gle/xvdGkEPG67AqjDjK7",
+    regLink: "https://docs.google.com/forms/d/e/1FAIpQLSfsF1dJhtKWpHe5nep1b2C84moqozoMwzQWmP92LLaZbOyDDg/viewform",
     details: "🎙️ 11:00 AM to 12:00 PM: Flash Mob & Grand Inauguration. 🍴 12:00 PM to 4:00 PM: Food Fest & Mind Games. Support your friends' culinary skills and sharpen your mind!"
   },
   {
@@ -18,7 +18,7 @@ export const schedule: EventItem[] = [
     theme: "Dress up as Favorite Film Characters",
     venue: "COLLEGE CAMPUS",
     img: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=1200&auto=format",
-    regLink: "https://forms.gle/S9QBZyokt4BQoJPE7",
+    regLink: "https://docs.google.com/forms/d/e/1FAIpQLScjlH1gAWUtN21xZVYzLP7zq3Bp0uqB9jjkLyN5yffGf4ajeQ/viewform",
     details: "🚶 11:00 AM to 12:00 PM: Ramp Walk (Show off your iconic costumes). 🎁 2:00 PM to 5:00 PM: Treasure Hunt. Explore the campus clues to claim victory!"
   },
   {
@@ -28,7 +28,7 @@ export const schedule: EventItem[] = [
     theme: "Unity, Box Cricket & Tug of War",
     venue: "CAMPUS GROUND",
     img: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format",
-    regLink: "https://forms.gle/YSQV7MHUjprPxLqQ6",
+    regLink: "https://docs.google.com/forms/d/e/1FAIpQLSfDfCeH0ponsYBcM7qfpd83gYZA5XNuRSq6jBN9oYqfxvqQJA/viewform",
     details: "🏏 10:00 AM to 1:00 PM: Box Cricket showdown. 🪢 2:00 PM to 5:00 PM: Tug of War battle of pure strength between departments!"
   },
   {
@@ -38,7 +38,7 @@ export const schedule: EventItem[] = [
     theme: "Penalty Shootout / Ball Kick Challenge",
     venue: "CAMPUS ARENA",
     img: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format",
-    regLink: "",
+    regLink: "https://docs.google.com/forms/d/e/1FAIpQLSfDdRlG2MxZPFJO-uXZrRDQ5HV5Yld38hmHZ9Ie289PL8tURw/viewform",
     details: "⚽ 11:00 AM – 1:00 PM: Penalty Shootout / Ball Kick Challenge. Set up a mini goalpost on campus where participants in jerseys try to score against a student goalkeeper!"
   },
   {
