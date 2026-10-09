@@ -58,7 +58,7 @@ export const eventCoordinators: EventCoordinatorGroup[] = [
     event: "Inauguration (Flex & Flash Mob)",
     contacts: [
       { name: "Santosh Kotinatot (ME)", phone: "7676043085" },
-      { name: "Onkar Jaganur (EEE)", phone: "9741012245" },
+      { name: "Omkar Jaganur (EEE)", phone: "9741012245" },
       { name: "Shreyas Upadhye", phone: "9482340883" },
       { name: "Anoop Hampannavar (CSE)", phone: "7760926543" }
     ]
