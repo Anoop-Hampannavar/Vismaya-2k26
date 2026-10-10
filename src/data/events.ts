@@ -84,9 +84,9 @@ export const eventCoordinators: EventCoordinatorGroup[] = [
     event: "Ramp Walk",
     contacts: [
       { name: "Rakhi Naik (ECE)", phone: "9448746822" },
-      { name: "Srushti Humashyal (CSE)", phone: "7019856323" },
+      { name: "Srushti Hunashyal (CSE)", phone: "7019856323" },
       { name: "Pramod Pujari (CSE)", phone: "7795516587" },
-      { name: "Karthik Uramratti (ECE)", phone: "8431439932" },
+      { name: "Karthik Uramanatti (ECE)", phone: "8431439932" },
       { name: "Anchan (ECE)" }
     ]
   },
@@ -95,9 +95,9 @@ export const eventCoordinators: EventCoordinatorGroup[] = [
     contacts: [
       { name: "Basavaraj Nerli", phone: "9148699665" },
       { name: "Akash Hiremath", phone: "9663938442" },
-      { name: "Sanjana Naddhage", phone: "7204706531" },
+      { name: "Sanjana Dhage", phone: "7204706531" },
       { name: "Amruta Prabhunatti" },
-      { name: "Gundu Yandolli" }
+      { name: "Gundu Yadolli" }
     ]
   },
   {
@@ -105,7 +105,7 @@ export const eventCoordinators: EventCoordinatorGroup[] = [
     contacts: [
       { name: "Suraj Huddar (CSE)", phone: "6360696143" },
       { name: "Prateek Dhange (ECE)", phone: "7411505732" },
-      { name: "Prashant Anigaddi (Mech)", phone: "9663438577" },
+      { name: "Prashant Angadi (Mech)", phone: "9663438577" },
       { name: "Manoj Talawar (EEE)", phone: "6364684229" }
     ]
   },
@@ -122,7 +122,7 @@ export const eventCoordinators: EventCoordinatorGroup[] = [
     event: "Kannada Habba & Evening Artist Function",
     contacts: [
       { name: "Shyamgouda Ningnuri (ECE)", phone: "8618660605" },
-      { name: "Karthik Uramratti (ECE)", phone: "8431439932" },
+      { name: "Karthik Uramanatti (ECE)", phone: "8431439932" },
       { name: "Vishal Pattar (CSE)", phone: "7619405393" }
     ]
   }
